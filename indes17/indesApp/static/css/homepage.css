@@ -4,6 +4,15 @@
     width: 100%;
     background-color: #C0C0C0;
 }
+.messages li{
+	color: black;
+	margin-top: 60px;
+	margin-bottom: -95px;
+	margin-left: -25px;
+}
+.messages{
+	list-style-type: none;
+}
 .navigationclass a {
     float: left;
     display: block;
@@ -124,7 +133,7 @@ h2{
     margin-right: 15px;
     margin-top: 10px;
     height: 300px;
-    width: 230px;
+    width: 220px;
     text-align: center;
 
 }
