@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import WeatherForm
 from .models import Location
+from django.contrib import messages
 
 import requests
 import json
@@ -37,12 +38,11 @@ class RequestWeather(View):
             req= requests.get(weather_url)
                 
             if req.status_code != 200: #http not OK, the user typed in something wrong
-                reqjson = 'N/A'
+                messages.add_message(request, messages.INFO, 'You typed the city name wrong or chose the wrong country. Please check your spelling.')
                 return render(request,'requestweather.html', {'form' : form})
             else:
                 reqjson = req.json()    
             data = reqjson
-            print(data)
             
             weather = [] #list to put basic data in
             
