@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+<h2>Request weather</h2>
+
+{% block content %}
+<div class = "firstline">
+  <div class="container">
+  <h3>5 day forecast</h3>
+  {% if error%}
+  <p> <b>{{ error }}</b> </p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %} 
+            <p>
+            {{ field }}
+        {% endfor %}
+        <button type="submit" id="submitbutton" class="icon">Search<i class="material-icons">search</i></button>
+    </form>
+    </div>
+    <div class = "container2">
+    {% if weather != None %}
+        <h2>Weather in {{city}}, {{country}}</h2>
+    {% endif %}
+    {% for item in weather %}
+                <div class = "dayforecast" onclick="clickFunction('{{item.0}}')">
+                    <h2>{{item.0}}</h2>
+                    <h3>{{item.1}}</h3>
+                    <h3>{{item.2}}</h3>
+                    {% if item.3 == "light rain" %}
+                        <img src="{% static 'img/lightrain.svg' %}"/>
+                    {% elif item.3 == "clouds" %}
+                        <img src="{% static 'img/cloudy.svg' %}"/>
+                    {% elif item.3 == "broken clouds" or item.3 == "few clouds" or item.3 == "scattered clouds" or item.3 == "overcast clouds"%}
+                        <img src="{% static 'img/partlycloudy.svg' %}"/>
+                    {% elif item.3 == "light snow" %}
+                        <img src="{% static 'img/lightsnow.svg' %}"/>
+                    {% elif item.3 == "clear sky" %}
+                        <img src="{% static 'img/sunny.svg' %}"/>
+                    {% elif item.3 == "moderate rain" %}
+                        <img src="{% static 'img/heavyrain.svg' %}"/>
+                    {% elif item.3 == "snow" %}
+                        <img src="{% static 'img/heavysnow.svg' %}"/>    
+                    {% endif %}
+                </div>
+    {% endfor %}
+    </div>
+</div>
+<div id = "details">
+     <h2 id="detailstitle"></h2>
+     <table>
+         <tr>
+           <th><p id="paragraphinfo"></p></th>
+           <th><p id="paragraphdata"></p></th>
+         </tr>
+         <tr>
+           <td><p>Cloudiness</p></td>
+           <td><p>Very sunny</p></td>
+         </tr>
+     </table>
+</div>
+{% endblock %}

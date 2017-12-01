@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Weather app</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="{% static 'js/homepage.js' %}"></script>
+</head>
+<body>
+<div class="navigationclass" id="navigationid">
+  <a href="/">Forecast</a>
+  <a href="/favorites">Favorites</a>
+  <a href="/profile">Profile</a>
+  <a href="/faq">FAQ</a>
+  <a href="/language">Language</a>
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+  <a href="javascript:void(0);" id="dropdown" class="menu" onclick="myFunction()">&#9776;</a>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+
+</html>
