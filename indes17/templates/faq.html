@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-    <p>Frequently asked questions here. </p>
+<div class="container4">
+    <h3>Frequently asked questions</h3>
+    <p><b>Q: No weather data is shown for my city. Why?</b></p>
+    <p class="answer"><b>A:</b> This site uses openweathermap.org as the weather data provider. The service does not support every city in the world, only the relatively big ones.</p>
+    <p><b>Q: Why should I register to this site?</b></p>
+    <p class="answer"><b>A:</b> By registering, you can store your favorite locations and language preference. The application will be much faster to use when you don't need to type anything in order to check the weather.</p>
+    <p><b>Q: Is this site secure?</b></p>
+    <p class="answer"><b>A:</b> Yes. This site uses SSL as security protocol. Pythonanywhere.com provides SSL automatically for sites with their domain name.</p>
+    <p><b>Q: What are the limitations of the API?</b></p>
+    <p class="answer"><b>A:</b> The API can handle at most 60 requests per minute, so let's hope this site does not get popular.</p>
+    <p><b>Q: I added three favorite cities, but I cannot add more. Why?</b></p>
+    <p class="answer"><b>A:</b> You are limited to three favorite cities, since the API can only handle 60 requests per minute.</p>
 </div>
 {% endblock %}
