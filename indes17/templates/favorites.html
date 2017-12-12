@@ -1,6 +1,40 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-<div class="container">
-    <p>This page is going to display a user's favorite locations, which you can click on to receive a 5 day forecast. </p>
-</div>
+    <div class="firstline">
+    <h1>Your favorites</h1>
+    {% for weather, name in locations %}
+        <div class="container2">
+        <h2>{{name}}</h2>
+        <form method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ name }}" name="locationname">
+                <button type="submit" id="removefromfavoritesbutton" name="addtofavorites">Remove from favorites</button>
+            </form>
+        {% for item in weather %}
+                <div class = "dayforecast" onclick="clickFunction('{{item.0}}','{{item.4}}','{{item.5}}','{{item.6}}','{{item.7}}')">
+                    <h2>{{item.0}}</h2>
+                    <h3>{{item.1}}</h3>
+                    <h3>{{item.2}}</h3>
+                    {% if item.3 == "light rain" %}
+                        <img src="{% static 'img/lightrain.svg' %}"/>
+                    {% elif item.3 == "clouds" %}
+                        <img src="{% static 'img/cloudy.svg' %}"/>
+                    {% elif item.3 == "broken clouds" or item.3 == "few clouds" or item.3 == "scattered clouds" or item.3 == "overcast clouds"%}
+                        <img src="{% static 'img/partlycloudy.svg' %}"/>
+                    {% elif item.3 == "light snow" %}
+                        <img src="{% static 'img/lightsnow.svg' %}"/>
+                    {% elif item.3 == "clear sky" %}
+                        <img src="{% static 'img/sunny.svg' %}"/>
+                    {% elif item.3 == "moderate rain" %}
+                        <img src="{% static 'img/heavyrain.svg' %}"/>
+                    {% elif item.3 == "snow" %}
+                        <img src="{% static 'img/heavysnow.svg' %}"/>    
+                    {% endif %}
+                </div>
+                
+        {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}
