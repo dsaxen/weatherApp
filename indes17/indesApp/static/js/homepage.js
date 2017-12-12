@@ -1,3 +1,12 @@
+$(document).ready(function(){
+
+    var fullpath =window.location.pathname;
+
+    $('.navigationclass').find('a').each(function() {
+        $(this).toggleClass('active', $(this).attr('href') == fullpath);
+    });
+});
+
 function myFunction(){
     var x = document.getElementById("navigationid");
     if (x.className === "navigationclass") {
@@ -6,12 +15,20 @@ function myFunction(){
         x.className = "navigationclass";
     }
 }
-function clickFunction(date){
+function clickFunction(date,cloudiness,pressure,humidity,cloudpercentage){
     document.getElementById('details').style.display = "table";
-    document.getElementById('detailstitle').innerHTML = "Details for " + date + " (still in development)";
-    document.getElementById('paragraphinfo').innerHTML = "Data descriptions will be shown here"
-    document.getElementById('paragraphdata').innerHTML = "Weather data will be shown here"
-}
-function getDate(){
-    return document.getElementById('date').innerHTML;
+    document.getElementById('detailstitle').innerHTML = "Details for " + date.toLowerCase();
+    document.getElementById('paragraphcloudsinfo').innerHTML = "Cloudiness";
+    document.getElementById('paragraphcloudsdata').innerHTML = cloudiness;
+
+    document.getElementById('paragraphcloudspinfo').innerHTML = "Cloudiness, %";
+    document.getElementById('paragraphcloudspdata').innerHTML = cloudpercentage;
+
+    document.getElementById('paragraphpressureinfo').innerHTML = "Pressure";
+    document.getElementById('paragraphpressuredata').innerHTML = pressure;
+
+    document.getElementById('paragraphhumidityinfo').innerHTML = "Humidity";
+    document.getElementById('paragraphhumiditydata').innerHTML = humidity;
+
+    document.getElementById('details').scrollIntoView();
 }
