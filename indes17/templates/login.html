@@ -1,6 +1,21 @@
 {% extends "base.html" %}
+{% load static %}
+{% load i18n %}
 {% block content %}
-<div class="container">
-    <p>This page is going to display a login form. </p>
+<div class="container4">
+    <h3>{% trans "Log in" %}</h3>
+    <p><b>{{ error }}</b></p>
+  {% if form.errors%}
+    <p> Password or username is incorrect </p>
+  {% endif %}
+        <form action="" method="post" autocapitalize="none">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" name="username" value="" id="username" autocapitalize="off">
+            <label for="password" id="passwordlabel">Password</label>
+            <input type="password" name="password" value="" id="password">
+
+            <input type="submit" value="Login" id="loginbutton">
+        </form>
 </div>
 {% endblock %}
