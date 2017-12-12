@@ -10,6 +10,6 @@ urlpatterns = [
     url(r'^faq$', faq),
     url(r'^language$', language),
     url(r'^register$', register),
-    url(r'^login$', login),
-    
+    url(r'^login$', login_view),
+    url(r'^logout$', logout_view),
 ]
