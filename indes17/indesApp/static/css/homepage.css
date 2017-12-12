@@ -1,7 +1,7 @@
 .navigationclass {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 101%;
     background-color: #C0C0C0;
 }
 .messages li{
@@ -21,13 +21,16 @@
     text-align: center;
     line-height: 22px;
     text-decoration: none;
-    color: #BCF2FF;
+    color: #B6DD73;
     border-right: 2px solid #BCF2FF;
 }
 .navigationclass a:hover {
     background-color: white;
     color: #B6DD73;
-    height: 100%;
+}
+.navigationclass a.active {
+    background-color: white;
+    color: #B6DD73;
 }
 .navigationclass .menu {
   display: none;
@@ -64,8 +67,11 @@
     font-size: 12px;
 }
 }
+p{
+    font-size: 18px;
+}
 h3{
-    color: #B6DD73;
+    color: black;
     font-size: 25px;
     font-weight: normal;
 }
@@ -75,14 +81,12 @@ h2{
 #id_city{
     font-size: 22px;
     height: 40px;
-    width: 100%;
-    text-transform:capitalize;
+    width: 89%;
     color: black;
-    
 }
 #id_country{
     height: 40px;
-    width: 100%;
+    width: 90%;
     font-size: 22px;
 }
 #submitbutton{
@@ -90,9 +94,10 @@ h2{
     font-size: 20px;
     width: 100px;
     height: 35px;
-    float: right;
+    float: left;
     color: #202020;
     text-align: center;
+    margin-left: 85px;
 }
 #id_temperaturescale{
     list-style-type: none;
@@ -102,9 +107,79 @@ h2{
     color: #202020;
     float: left;
 }
+#id_temperaturescale label {
+    cursor: pointer;
+}
+#id_temperaturescale label:hover {
+    color: white;
+}
 #submitbutton:hover{
     color: #B6DD73;
     background-color: white;
+    cursor: pointer;
+}
+#username{
+    font-size: 22px;
+    width: 200px;
+    color: black;
+    display: block;
+    margin-bottom: 10px;
+}
+#password{
+    font-size: 22px;
+    width: 200px;
+    text-transform: capitalize;
+    color: black;
+    display: block;
+}
+#loginbutton{
+    font-size: 20px;
+    width: 100px;
+    height: 35px;
+    float: left;
+    color: #202020;
+    margin-top: 10px;
+}
+#addtofavoritesbutton{
+    font-size: 20px;
+    width: 223px;
+    height: 40px;
+    color: #202020;
+    text-align: center;
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+#addtofavoritesbutton:hover{
+    color: #B6DD73;
+    background-color: white;
+    cursor: pointer;
+}
+#removefromfavoritesbutton{
+    font-size: 20px;
+    width: 223px;
+    height: 40px;
+    color: #202020;
+    text-align: center;
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+#removefromfavoritesbutton:hover{
+    color: #B6DD73;
+    background-color: white;
+    cursor: pointer;
+}
+#signupbutton{
+    font-size: 20px;
+    width: 100px;
+    height: 35px;
+    float: left;
+    color: #202020;
+    margin-top: 10px;
+}
+#signupbutton:hover{
+    color: #B6DD73;
+    background-color: white;
+    cursor: pointer;
 }
 .container {
     width: 345px;
@@ -116,6 +191,7 @@ h2{
 .container2 {
     margin-left: 70px;
     margin-top: 60px;
+    margin-bottom: -30px;
     float: left;
 }
 .container2 h3 {
@@ -125,46 +201,109 @@ h2{
     color: black;
     font-weight: normal;
 }
+.container2 h3 a {
+    color: #00CBE9;
+    text-decoration: none;
+}
+.container2 h3 a:hover {
+    color: white;
+    text-decoration: none;
+}
 
+
+.container3 {
+    width: 600px;
+    margin-left: 15px;
+    margin-top: 40px;
+    display:inline-block;
+    float: left;
+}
+.container3 h2 {
+    color: #B6DD73;
+    font-size: 26px;
+}
+.container4 {
+    width: 40%;
+    margin-left: 15px;
+    margin-top: 40px;
+    display:inline-block;
+    float: left;
+    text-align: justify;
+}
+@media screen and (max-width: 800px) {
+    .container4 { width: 90%; }
+    .container { width: 90%; }
+    .dayforecast { width: 95%; margin-right: 0px; }
+    #submitbutton {margin-left: 21%;}
+}
+.answer{
+    padding-bottom: 15px;
+}
 .dayforecast {
     background-color: #FAF9F4;
     border: 2px solid #B6DD73;
     float: left;
     margin-right: 15px;
-    margin-top: 10px;
+    margin-top: 5px;
     height: 300px;
     width: 220px;
     text-align: center;
-
+    margin-bottom: 10px;
+    z-index: -1;
 }
 .dayforecast:hover {
     background-color: white;
     cursor: pointer;
     border: 2px solid #00CBE9;
 }
-
-#details {
-    position: relative;
+.firstline h1 {
+    margin-top: 60px;
+    margin-left: 70px;
+    margin-bottom: -40px;
+    color: #B6DD73;
+}
+.firstline h2 {
+    color: black;
+}
+.form-control {
+    width: 200px;
+    font-size: 22px;
+    margin-top: 5px;
+}
+#profile{
     background-color: #FAF9F4;
     border: 2px solid #B6DD73;
-    margin-right: 10px;
+    float: left;
+    height: 270px;
+    width: 250px;
+    padding: 3px;
+}
+#details {
+    background-color: #FAF9F4;
+    border: 2px solid #B6DD73;
     margin-top: 20px;
-    margin-left: 430px;
-    height: 400px;
-    width: 555px;
+    height: 300px;
+    width: 305px;
     text-align: center;
     display: none;
     float: left;
+    z-index: -1;
 }
 table {
     border-collapse: collapse;
     width: 100%;
 }
-td, th {
-    border: 3px solid black;
+td {
+    border: 1px solid black;
     text-align: left;
     padding: 8px;
-}   
+}
+th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
 tr:nth-child(even) {
     background-color: #dddddd;
 }
