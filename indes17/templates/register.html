@@ -1,6 +1,23 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block content %}
-<div class="container">
-    <p>This page is for registering to the weather app service. </p>
-</div>
+  <div class="container4">
+    <h3>{% trans "Register"%}</h3>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <p>
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% if field.help_text %}
+                <small style="color: grey">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+            {% endfor %}
+            </p>
+        {% endfor %}
+        <button type="submit" id="signupbutton">Sign up</button>
+    </form>
+  </div>
 {% endblock %}
