@@ -1,6 +1,14 @@
 {% extends "base.html" %}
+
 {% block content %}
 <div class="container">
-    <p>This page is going to display the profile page of a user. </p>
+    <div id="profile">
+        <h3>Profile information</h3>
+        <p>Username: <b>{{ user }}</b></p>
+        <p>First name: <b>{{ user.first_name }}</b></p>
+        <p>Last name: <b>{{ user.last_name }}</b></p>
+        <p>Email: <b>{{ user.email }}</b></p>
+        <p>Language preference: <b>{{ user.profile.language }}</b></p>
+    </div>
 </div>
 {% endblock %}
