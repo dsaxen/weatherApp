@@ -25,8 +25,8 @@ SECRET_KEY = '-jr)f3g9vy3mny7oh%vykqw-#71!ghp2pxm8e8mrlhzf7do_gw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['danielsaxen.pythonanywhere.com']
+AUTH_PROFILE_MODULE = 'indesApp.Profile'
 
 # Application definition
 
@@ -52,7 +52,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'indes17.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -81,7 +80,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+SECURE_SSL_REDIRECT = True
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
